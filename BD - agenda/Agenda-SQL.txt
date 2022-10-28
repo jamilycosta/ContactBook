@@ -1,0 +1,26 @@
+/* Agenda: */
+
+CREATE DATABASE agenda;
+
+USE agenda;
+
+CREATE TABLE usuarios (
+    cpf Varchar(50) PRIMARY KEY UNIQUE,
+    senha Varchar(50) NOT NULL,
+    nome Varchar(50) NOT NULL,
+    email Varchar(50) NOT NULL
+);
+
+CREATE TABLE contatos (
+    telefone Varchar(50) NOT NULL,
+    endereco Varchar(50),
+    nome Varchar(50) NOT NULL,
+    email Varchar(50),
+    id serial PRIMARY KEY,
+    usuario_cpf Varchar(50) NOT NULL
+);
+ 
+ALTER TABLE contatos ADD CONSTRAINT FK_contatos_2
+    FOREIGN KEY (usuario_cpf)
+    REFERENCES usuarios (cpf)
+    ON DELETE CASCADE;
