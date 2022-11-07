@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
 	
-	private String user = "postgres";
+	private String user = "";
 	private String senha = "";
 	private String url = "jdbc:postgresql://localhost:5432/agenda";
 	private Connection con = null;
